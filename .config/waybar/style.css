@@ -1,0 +1,60 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+    color: white;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+tooltip {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(255, 255, 255);
+}
+
+#custom-launcher {
+   font-size: 18px;
+}
+
+#clock {
+    font-size: 16px;
+}
+
+#window, #clock {
+   font-weight: bold;
+}
+
+#custom-on_screen_keyboard, #clock, #window, #custom-launcher, #workspaces button, #tray, #idle_inhibitor, #cpu, #mode, #battery, #language, #keyboard-state, #backlight, #temperature, #memory, #network, #pulseaudio {
+    margin: 0px 5px;
+    padding: 0px 2px;
+}
+
+#custom-on_screen_keyboard, #clock, #custom-launcher, #workspaces button, #tray, #idle_inhibitor, #cpu, #mode, #battery, #language, #keyboard-state, #backlight, #temperature, #memory, #network, #pulseaudio {
+    border-bottom: 1px solid white;
+}
+
+#battery.charging {
+    color: white;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: initial;
+        color: initial;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: #f53c3c;
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
