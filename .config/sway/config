@@ -3,11 +3,10 @@
 ### Apps used in this config
 # alacritty
 # sway-desktop-launcher
-# pactl
 # waybar
+## Optional
 # wl-paste
 # clipman
-## Optional
 # grim
 # slurp
 # swappy
