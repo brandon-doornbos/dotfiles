@@ -297,5 +297,6 @@ exec discord --start-minimized &
 exec electron-mail &
 exec emote &
 exec sh ~/Sync/Files/Tools/fix-primary-display.sh
+exec gsettings set org.gnome.desktop.interface gtk-theme Breeze-Dark # Just setting this in the config doesnt work apparently
 
 include /etc/sway/config.d/*
