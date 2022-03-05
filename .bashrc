@@ -29,4 +29,4 @@ fi
 # Environment variables
 export EDITOR=nvim
 export TERMINAL=alacritty
-export PATH=$PATH:/home/brandond/.local/bin
+export PATH=$PATH:/home/brandond/.deno/bin:/home/brandond/.local/bin
