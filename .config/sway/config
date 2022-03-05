@@ -249,6 +249,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec $menu
+bindsym XF86Tools exec playerctl play-pause # This is the Huawei PC Master key on Matebooks
 
 #
 # Screenshot
