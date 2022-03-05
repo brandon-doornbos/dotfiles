@@ -256,6 +256,11 @@ bindsym XF86Search exec $menu
 bindsym Print exec grim -g "$(slurp)" - | swappy -f -
 
 #
+# Emoji picker
+#
+bindsym $mod+Period exec emote
+
+#
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
@@ -289,6 +294,7 @@ exec wvkbd --hidden &
 exec ckb-next --background &
 exec discord --start-minimized &
 exec electron-mail &
+exec emote &
 exec sh ~/Sync/Files/Tools/fix-primary-display.sh
 
 include /etc/sway/config.d/*
