@@ -1,0 +1,39 @@
+# General
+\ - leader
+
+# Movement
+w - go to beginning of next word
+b - go to beginning of current word
+e - go to end of current word
+
+# Actions
+j + k - normal mode
+Ctrl + 6 - previous file
+Ctrl + w w - next page
+
+# Editing
+y - copy (yank)
+d - cut
+u - undo
+Ctrl + r - redo
+Shift + v - visual line
+Ctrl + v - visual block
+
+# Nerdtree
+Shift + c - change into selected directory
+
+# Multi Cursor
+Ctrl + N - select words
+Ctrl + Down/Up - create cursors vertically
+Shift + Arrows - select 1 character at a time
+n/N - get next/previous occurrence
+[/] - select next/previous cursor
+q - skip current and get next occurrence
+Q - remove current cursor or selection
+Tab - switch between 'cursor' and 'extend' mode
+
+# Language Server
+g d - go to definition
+Space + r n - rename current symbol
+g r - references
+Shift + k - hover
