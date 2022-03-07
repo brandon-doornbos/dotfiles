@@ -46,6 +46,8 @@ call plug#begin()
 
     Plug 'airblade/vim-gitgutter'
 
+    Plug 'mg979/vim-visual-multi'
+
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-nvim-lsp'
