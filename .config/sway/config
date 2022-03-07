@@ -4,6 +4,7 @@
 # alacritty
 # sway-desktop-launcher
 # waybar
+# polkit-gnome
 ## Optional
 # wl-paste
 # clipman
@@ -305,6 +306,7 @@ font "JetBrains Mono" Medium 10
 #
 # Autostart
 #
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec wvkbd --hidden &
 exec ckb-next --background &
 exec discord --start-minimized &
