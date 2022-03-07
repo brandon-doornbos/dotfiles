@@ -17,6 +17,9 @@
         "on-click": "alacritty --class=launcher -e sway-launcher-desktop | xargs swaymsg exec --",
         "on-click-right": "swaymsg kill",
     },
+    "sway/window": {
+        "icon": false,
+    },
     "wlr/taskbar": {
         "on-click": "activate",
         "on-click-right": "close",
