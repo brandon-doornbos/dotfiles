@@ -56,6 +56,9 @@ call plug#begin()
 call plug#end()
 
 let g:airline_theme='transparent'
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline_symbols_ascii=1
+let g:airline_section_z=airline#section#create(['linenr','maxlinenr','colnr'])
 
 highlight! link SignColumn LineNr
 
