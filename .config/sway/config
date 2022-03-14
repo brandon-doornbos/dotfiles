@@ -332,5 +332,6 @@ exec electron-mail &
 exec emote &
 exec sh ~/Sync/Tools/fix-primary-display.sh
 exec gsettings set org.gnome.desktop.interface gtk-theme Breeze-Dark # Just setting this in the config doesnt work apparently
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 include /etc/sway/config.d/*
