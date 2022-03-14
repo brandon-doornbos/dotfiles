@@ -18,6 +18,8 @@ export PS1='\[\e[00m\]\[\e[1;35m\]\w\[\e[00m\]\[\e[2;37m\]$(__git_ps1 " (%s)")\n
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
+complete -cf doas
+
 # Start ssh-agent if it hasn't already
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
