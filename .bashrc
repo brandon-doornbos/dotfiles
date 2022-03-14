@@ -9,7 +9,7 @@
 alias ls='ls --color=auto'
 
 # Bash prompt with git integration
-. ~/Sync/Files/Tools/dotfiles/git-prompt.sh
+. ~/Sync/Tools/dotfiles/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='\[\e[00m\]\[\e[1;35m\]\w\[\e[00m\]\[\e[2;37m\]$(__git_ps1 " (%s)")\n\[\e[00m\]\[\e[2;37m\]> \[\e[00m\]'
 #PS1='[\u@\h \W]\$ '

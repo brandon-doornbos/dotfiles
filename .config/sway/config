@@ -44,8 +44,8 @@ for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 p
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output eDP-1 bg /home/brandond/Sync/Files/Pictures/wallpapers/retrowave-synth-by-natalia-bielawska.jpg fill
-output * bg /home/brandond/Sync/Files/Pictures/wallpapers/retrowave-synth-by-natalia-bielawska-16x9.jpg fill
+output eDP-1 bg /home/brandond/Sync/Media/Pictures/wallpapers/retrowave-synth-by-natalia-bielawska.jpg fill
+output * bg /home/brandond/Sync/Media/Pictures/wallpapers/retrowave-synth-by-natalia-bielawska-16x9.jpg fill
 output DP-1 pos 1920 0 mode 2560x1080@74.991Hz
 output HDMI-A-1 pos 0 0
 output * adaptive_sync on
@@ -330,7 +330,7 @@ exec ckb-next --background &
 exec discord --start-minimized &
 exec electron-mail &
 exec emote &
-exec sh ~/Sync/Files/Tools/fix-primary-display.sh
+exec sh ~/Sync/Tools/fix-primary-display.sh
 exec gsettings set org.gnome.desktop.interface gtk-theme Breeze-Dark # Just setting this in the config doesnt work apparently
 
 include /etc/sway/config.d/*
