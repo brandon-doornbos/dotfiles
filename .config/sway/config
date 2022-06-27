@@ -325,7 +325,7 @@ font "JetBrains Mono" Medium 10
 # Autostart
 #
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec wvkbd --hidden &
+exec wvkbd -H 350 -l Simple,Special,Emoji --hidden &
 exec ckb-next --background &
 exec discord --start-minimized &
 exec electron-mail &
