@@ -35,10 +35,9 @@ endfunction
 autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :call FormatBuffer()
 
 call plug#begin()
-    Plug 'preservim/nerdtree'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-
     Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'kyazdani42/nvim-tree.lua'
+
     Plug 'romgrk/barbar.nvim'
 
     Plug 'vim-airline/vim-airline'
@@ -97,26 +96,47 @@ nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
 nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
 
-" NERDTree mappings
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-" Start NERDTree when Vim starts with a directory argument.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-" Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-"autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-"    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-let NERDTreeShowHidden=1
+" nvim-tree mappings
+nnoremap <leader>n :NvimTreeFocus<CR>
+nnoremap <C-t> :NvimTreeToggle<CR>
+nnoremap <C-f> :NvimTreeFindFile<CR>
 
 lua << EOF
+-- Start and configure nvim-tree
+require("nvim-tree").setup({
+    open_on_setup = true,
+    view = {
+        mappings = {
+            list = {
+                { key = "u", action = "dir_up" },
+                { key = "<C-t>", action = "close" },
+                { key = "C", action = "cd" },
+            },
+        },
+    },
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  nested = true,
+  callback = function()
+    if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
+      vim.cmd "quit"
+    end
+  end
+})
+
+-- Start barbar with an offset for nvim-tree
+local nvim_tree_events = require('nvim-tree.events')
+local bufferline_state = require('bufferline.state')
+
+nvim_tree_events.on_tree_open(function ()
+  bufferline_state.set_offset(31, "File Explorer")
+end)
+
+nvim_tree_events.on_tree_close(function ()
+  bufferline_state.set_offset(0)
+end)
+
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
