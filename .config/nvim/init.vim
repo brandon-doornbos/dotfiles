@@ -24,7 +24,7 @@ nnoremap <A-t> :split term://bash<CR>
 tnoremap <Esc> <C-\><C-n>
 inoremap jk <esc>
 
-function FormatBuffer()
+function FormatBufferClang()
     if &modified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
         let cursor_pos = getpos('.')
         :%!clang-format
@@ -32,7 +32,17 @@ function FormatBuffer()
     endif
 endfunction
 
-autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :call FormatBuffer()
+autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :call FormatBufferClang()
+
+function FormatBufferRust()
+    if &modified
+        let cursor_pos = getpos('.')
+        :%!rustfmt
+        call setpos('.', cursor_pos)
+    endif
+endfunction
+
+autocmd BufWritePre *.rs :call FormatBufferRust()
 
 call plug#begin()
     Plug 'kyazdani42/nvim-web-devicons'
