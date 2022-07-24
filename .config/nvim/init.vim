@@ -34,15 +34,7 @@ endfunction
 
 autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :call FormatBufferClang()
 
-function FormatBufferRust()
-    if &modified
-        let cursor_pos = getpos('.')
-        :%!rustfmt
-        call setpos('.', cursor_pos)
-    endif
-endfunction
-
-autocmd BufWritePre *.rs :call FormatBufferRust()
+autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
 
 call plug#begin()
     Plug 'kyazdani42/nvim-web-devicons'
